@@ -1435,6 +1435,7 @@ int spi_nand_init(void)
 	mtd->_write_oob = spi_nand_write_oob;
 	mtd->_block_isbad = spi_nand_block_isbad;
 	mtd->_block_markbad = spi_nand_block_markbad;
+	mtd->writebufsize = mtd->writesize;
 
 	chip->page_shift = ffs(mtd->writesize) - 1;
 	chip->phys_erase_shift = ffs(mtd->erasesize) - 1;
